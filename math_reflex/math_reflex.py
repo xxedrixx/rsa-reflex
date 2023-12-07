@@ -3,39 +3,29 @@ import math
 
 class NumberInputState(rx.State):
     p: int
-    q: int
-    n: int 
-    L: int
-    r: int 
-    s: int
-    message: str
+    is_prime: bool = False  # New state variable to store if 'p' is prime or not
 
-    def prime(num):  
+    def prime(self, num):
         if num < 2:  
             return False  
         for i in range(2, int(math.sqrt(num)) + 1):  
             if num % i == 0:  
                 return False  
         return True 
-    
-    @rx.var
-    def get_p(self):
-        if not NumberInputState.prime(NumberInputState.p):
-            return (f"{NumberInputState.p} is NOT prime")
 
-
+    def set_p(self, value):     # Use built-in setter to update state
+        self.p = int(value)
+        self.is_prime = self.prime(self.p)
+ 
 def index():
     return rx.vstack(
         rx.number_input(
             on_change=NumberInputState.set_p,
         ),
-        rx.text("p is ", NumberInputState.p),
         rx.cond(
-            NumberInputState.p == NumberInputState.prime,
-            rx.text(NumberInputState.p,"is NOT prime", color="red"),
-            rx.text(NumberInputState.p, "is prime", color="green"),
-            
-            
+            NumberInputState.is_prime,
+            rx.text(NumberInputState.p," is prime", color="green"),
+            rx.text(NumberInputState.p, " is NOT prime", color="red"),
         )
     )
 

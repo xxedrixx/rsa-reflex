@@ -8,6 +8,31 @@ import NextHead from "next/head"
 
 
 
+export function Fragment_9680fdcbedf302585b267b92e4ccf55b () {
+  const state__number_input_state = useContext(StateContexts.state__number_input_state)
+
+
+  return (
+    <Fragment>
+  {isTrue(state__number_input_state.is_prime) ? (
+  <Fragment>
+  <Text sx={{"color": "green"}}>
+  {state__number_input_state.p}
+  {` is prime`}
+</Text>
+</Fragment>
+) : (
+  <Fragment>
+  <Text sx={{"color": "red"}}>
+  {state__number_input_state.p}
+  {` is NOT prime`}
+</Text>
+</Fragment>
+)}
+</Fragment>
+  )
+}
+
 export function Numberinput_efaa36757abc4f151bbbeac7468c4bda () {
   const [addEvents, connectError] = useContext(EventLoopContext);
 
@@ -24,43 +49,6 @@ export function Numberinput_efaa36757abc4f151bbbeac7468c4bda () {
   )
 }
 
-export function Fragment_ee77768fa62824f79e68217a8f6fd13e () {
-  const state__number_input_state = useContext(StateContexts.state__number_input_state)
-
-
-  return (
-    <Fragment>
-  {isTrue((state__number_input_state.p === {"event_actions": {}, "fn": null})) ? (
-  <Fragment>
-  <Text sx={{"color": "red"}}>
-  {state__number_input_state.p}
-  {`is NOT prime`}
-</Text>
-</Fragment>
-) : (
-  <Fragment>
-  <Text sx={{"color": "green"}}>
-  {state__number_input_state.p}
-  {`is prime`}
-</Text>
-</Fragment>
-)}
-</Fragment>
-  )
-}
-
-export function Text_ecf19bb2a734ed57d6aecb6064976051 () {
-  const state__number_input_state = useContext(StateContexts.state__number_input_state)
-
-
-  return (
-    <Text>
-  {`p is `}
-  {state__number_input_state.p}
-</Text>
-  )
-}
-
 export default function Component() {
 
   return (
@@ -68,8 +56,7 @@ export default function Component() {
   <Fragment_fd0e7cb8f9fb4669a6805377d925fba0/>
   <VStack>
   <Numberinput_efaa36757abc4f151bbbeac7468c4bda/>
-  <Text_ecf19bb2a734ed57d6aecb6064976051/>
-  <Fragment_ee77768fa62824f79e68217a8f6fd13e/>
+  <Fragment_9680fdcbedf302585b267b92e4ccf55b/>
 </VStack>
   <NextHead>
   <title>
