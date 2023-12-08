@@ -24,9 +24,9 @@ export function Numberinput_988600d4e3cc7203dd3b7f82d1220e6a () {
   )
 }
 
-export function Fragment_0ae53260b918c5abd0d363543d387794 () {
-  const state__number_input_state = useContext(StateContexts.state__number_input_state)
+export function Fragment_aa7fef1e9918bb51cb4ddc4768dbe92a () {
   const [addEvents, connectError] = useContext(EventLoopContext);
+  const state__number_input_state = useContext(StateContexts.state__number_input_state)
 
 
   return (
@@ -89,7 +89,9 @@ export function Fragment_0ae53260b918c5abd0d363543d387794 () {
   <Fragment>
   <Text sx={{"color": "red"}}>
   {state__number_input_state.r}
-  {` is NOT prime r`}
+  {` and `}
+  {state__number_input_state.L}
+  {` are NOT coprime r`}
 </Text>
 </Fragment>
 )}
@@ -129,7 +131,7 @@ export default function Component() {
   {`Enter p`}
 </Text>
   <Numberinput_988600d4e3cc7203dd3b7f82d1220e6a/>
-  <Fragment_0ae53260b918c5abd0d363543d387794/>
+  <Fragment_aa7fef1e9918bb51cb4ddc4768dbe92a/>
 </VStack>
   <NextHead>
   <title>

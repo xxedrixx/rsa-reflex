@@ -39,10 +39,11 @@ class NumberInputState(rx.State):
 
     def set_r(self, value):     # Use built-in setter to update state
         self.r = int(value) if value.strip() != "" else 0  # Convert to integer if value is not empty
-        if self.r != 0:
-            self.is_prime_r = self.prime(self.r)
+        if math.gcd(self.r, self.L)==1:
+            self.is_prime_r = self.r
         else:
             self.is_prime_r = False
+        #self.set_L()            # Update 'L' after 'p' is changed
         
     def set_n(self):
         self.n = self.p * self.q 
@@ -86,7 +87,7 @@ def index():
                                 rx.text("L=", NumberInputState.L),
                                 rx.text_area(placeholder="Enter message"),
                                 ),
-                            rx.text(NumberInputState.r, " is NOT prime r", color="red")
+                            rx.text(NumberInputState.r, " and ", NumberInputState.L, " are NOT coprime r", color="red")
                         )
                     ),
                         
