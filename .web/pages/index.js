@@ -33,13 +33,13 @@ export function Fragment_9680fdcbedf302585b267b92e4ccf55b () {
   )
 }
 
-export function Numberinput_efaa36757abc4f151bbbeac7468c4bda () {
+export function Numberinput_988600d4e3cc7203dd3b7f82d1220e6a () {
   const [addEvents, connectError] = useContext(EventLoopContext);
 
   const on_change_d84fa6cfb66f1741f7cb63ce0aed5c39 = useCallback((_e0) => addEvents([Event("state.number_input_state.set_p", {value:_e0})], (_e0), {}), [addEvents, Event])
 
   return (
-    <NumberInput onChange={on_change_d84fa6cfb66f1741f7cb63ce0aed5c39}>
+    <NumberInput min={0} onChange={on_change_d84fa6cfb66f1741f7cb63ce0aed5c39}>
   <NumberInputField/>
   <NumberInputStepper>
   <NumberIncrementStepper/>
@@ -55,12 +55,12 @@ export default function Component() {
     <Fragment>
   <Fragment_fd0e7cb8f9fb4669a6805377d925fba0/>
   <VStack>
-  <Numberinput_efaa36757abc4f151bbbeac7468c4bda/>
+  <Numberinput_988600d4e3cc7203dd3b7f82d1220e6a/>
   <Fragment_9680fdcbedf302585b267b92e4ccf55b/>
 </VStack>
   <NextHead>
   <title>
-  {`Reflex App`}
+  {`RSA`}
 </title>
   <meta content={`A Reflex app.`} name={`description`}/>
   <meta content={`favicon.ico`} property={`og:image`}/>

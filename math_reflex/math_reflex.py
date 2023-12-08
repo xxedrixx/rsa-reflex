@@ -3,7 +3,7 @@ import math
 
 class NumberInputState(rx.State):
     p: int
-    is_prime: bool = False  # New state variable to store if 'p' is prime or not
+    is_prime: bool = False  
 
     def prime(self, num):
         if num < 2:  
@@ -14,13 +14,19 @@ class NumberInputState(rx.State):
         return True 
 
     def set_p(self, value):     # Use built-in setter to update state
-        self.p = int(value)
-        self.is_prime = self.prime(self.p)
+        self.p = int(value) if value.strip() != "" else 0  # Convert to integer if value is not empty
+        if self.p != 0:
+            self.is_prime = self.prime(self.p)
+        else:
+            self.is_prime = False
+        
  
+@rx.page(title="RSA")
 def index():
     return rx.vstack(
         rx.number_input(
             on_change=NumberInputState.set_p,
+            min_=0
         ),
         rx.cond(
             NumberInputState.is_prime,
@@ -29,11 +35,10 @@ def index():
         )
     )
 
+@rx.page(route="/about")
 def about():
     return rx.text("This is a simple project to try out reflex")
 
 
 app = rx.App()
-app.add_page(index)
-app.add_page(about, route="/about")
 app.compile()
