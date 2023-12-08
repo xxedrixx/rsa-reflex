@@ -8,6 +8,7 @@ class NumberInputState(rx.State):
     is_prime_q: bool = False  
     is_prime_p: bool = False  
     is_prime_r: bool = False
+    n: int
 
     def prime(self, num):
         if num < 2:  
@@ -38,7 +39,10 @@ class NumberInputState(rx.State):
         else:
             self.is_prime_r = False
         
+    def set_n(self):
+        self.n = self.p * self.q 
  
+
 @rx.page(title="RSA")
 def index():
     return rx.vstack(
