@@ -1,9 +1,9 @@
 import { Fragment, useCallback, useContext } from "react"
 import { Fragment_fd0e7cb8f9fb4669a6805377d925fba0 } from "/utils/stateful_components"
-import { Container, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Text } from "@chakra-ui/react"
+import { NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Text, Textarea, VStack } from "@chakra-ui/react"
+import "focus-visible/dist/focus-visible"
 import { EventLoopContext, StateContexts } from "/utils/context"
 import { Event, isTrue } from "/utils/state"
-import "focus-visible/dist/focus-visible"
 import NextHead from "next/head"
 
 
@@ -24,7 +24,7 @@ export function Numberinput_988600d4e3cc7203dd3b7f82d1220e6a () {
   )
 }
 
-export function Fragment_09d9e8253db0e0bb9f93183fe0a05940 () {
+export function Fragment_58a9eddd3c282a884f38c6f002c252ef () {
   const state__number_input_state = useContext(StateContexts.state__number_input_state)
   const [addEvents, connectError] = useContext(EventLoopContext);
 
@@ -33,7 +33,14 @@ export function Fragment_09d9e8253db0e0bb9f93183fe0a05940 () {
     <Fragment>
   {isTrue(state__number_input_state.is_prime_p) ? (
   <Fragment>
-  <Container>
+  <VStack>
+  <Text>
+  {`p=`}
+  {state__number_input_state.p}
+</Text>
+  <Text>
+  {`Enter q`}
+</Text>
   <NumberInput min={0} onChange={(_e0) => addEvents([Event("state.number_input_state.set_q", {value:_e0})], (_e0), {})}>
   <NumberInputField/>
   <NumberInputStepper>
@@ -44,6 +51,14 @@ export function Fragment_09d9e8253db0e0bb9f93183fe0a05940 () {
   <Fragment>
   {isTrue(state__number_input_state.is_prime_q) ? (
   <Fragment>
+  <VStack>
+  <Text>
+  {`q=`}
+  {state__number_input_state.q}
+</Text>
+  <Text>
+  {`Enter r`}
+</Text>
   <NumberInput min={0} onChange={(_e0) => addEvents([Event("state.number_input_state.set_r", {value:_e0})], (_e0), {})}>
   <NumberInputField/>
   <NumberInputStepper>
@@ -51,23 +66,44 @@ export function Fragment_09d9e8253db0e0bb9f93183fe0a05940 () {
   <NumberDecrementStepper/>
 </NumberInputStepper>
 </NumberInput>
+  <Fragment>
+  {isTrue(state__number_input_state.is_prime_r) ? (
+  <Fragment>
+  <VStack>
+  <Text>
+  {`r=`}
+  {state__number_input_state.r}
+</Text>
+  <Textarea placeholder={`Enter message`}/>
+</VStack>
+</Fragment>
+) : (
+  <Fragment>
+  <Text sx={{"color": "red"}}>
+  {state__number_input_state.r}
+  {` is NOT prime r`}
+</Text>
+</Fragment>
+)}
+</Fragment>
+</VStack>
 </Fragment>
 ) : (
   <Fragment>
   <Text sx={{"color": "red"}}>
   {state__number_input_state.q}
-  {` is NOT prime`}
+  {` is NOT prime q`}
 </Text>
 </Fragment>
 )}
 </Fragment>
-</Container>
+</VStack>
 </Fragment>
 ) : (
   <Fragment>
   <Text sx={{"color": "red"}}>
   {state__number_input_state.p}
-  {` is NOT prime`}
+  {` is NOT prime p`}
 </Text>
 </Fragment>
 )}
@@ -80,10 +116,13 @@ export default function Component() {
   return (
     <Fragment>
   <Fragment_fd0e7cb8f9fb4669a6805377d925fba0/>
-  <Container>
+  <VStack>
+  <Text>
+  {`Enter p`}
+</Text>
   <Numberinput_988600d4e3cc7203dd3b7f82d1220e6a/>
-  <Fragment_09d9e8253db0e0bb9f93183fe0a05940/>
-</Container>
+  <Fragment_58a9eddd3c282a884f38c6f002c252ef/>
+</VStack>
   <NextHead>
   <title>
   {`RSA`}
