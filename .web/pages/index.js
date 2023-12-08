@@ -24,7 +24,7 @@ export function Numberinput_988600d4e3cc7203dd3b7f82d1220e6a () {
   )
 }
 
-export function Fragment_58a9eddd3c282a884f38c6f002c252ef () {
+export function Fragment_0ae53260b918c5abd0d363543d387794 () {
   const state__number_input_state = useContext(StateContexts.state__number_input_state)
   const [addEvents, connectError] = useContext(EventLoopContext);
 
@@ -74,6 +74,14 @@ export function Fragment_58a9eddd3c282a884f38c6f002c252ef () {
   {`r=`}
   {state__number_input_state.r}
 </Text>
+  <Text>
+  {`n=`}
+  {state__number_input_state.n}
+</Text>
+  <Text>
+  {`L=`}
+  {state__number_input_state.L}
+</Text>
   <Textarea placeholder={`Enter message`}/>
 </VStack>
 </Fragment>
@@ -121,7 +129,7 @@ export default function Component() {
   {`Enter p`}
 </Text>
   <Numberinput_988600d4e3cc7203dd3b7f82d1220e6a/>
-  <Fragment_58a9eddd3c282a884f38c6f002c252ef/>
+  <Fragment_0ae53260b918c5abd0d363543d387794/>
 </VStack>
   <NextHead>
   <title>

@@ -9,6 +9,7 @@ class NumberInputState(rx.State):
     is_prime_p: bool = False  
     is_prime_r: bool = False
     n: int
+    L: int
 
     def prime(self, num):
         if num < 2:  
@@ -24,6 +25,8 @@ class NumberInputState(rx.State):
             self.is_prime_p = self.prime(self.p)
         else:
             self.is_prime_p = False
+        self.set_n()            # Update 'n' after 'p' is changed
+        self.set_L()            # Update 'L' after 'p' is changed
 
     def set_q(self, value):     # Use built-in setter to update state
         self.q = int(value) if value.strip() != "" else 0  # Convert to integer if value is not empty
@@ -31,6 +34,8 @@ class NumberInputState(rx.State):
             self.is_prime_q = self.prime(self.q)
         else:
             self.is_prime_q = False
+        self.set_n()            # Update 'n' after 'p' is changed
+        self.set_L()            # Update 'L' after 'p' is changed
 
     def set_r(self, value):     # Use built-in setter to update state
         self.r = int(value) if value.strip() != "" else 0  # Convert to integer if value is not empty
@@ -41,6 +46,9 @@ class NumberInputState(rx.State):
         
     def set_n(self):
         self.n = self.p * self.q 
+
+    def set_L(self):
+        self.L = math.lcm ((self.p - 1), (self.q - 1))
  
 
 @rx.page(title="RSA")
@@ -74,6 +82,8 @@ def index():
                             NumberInputState.is_prime_r,
                             rx.vstack(
                                 rx.text("r=", NumberInputState.r),
+                                rx.text("n=", NumberInputState.n),
+                                rx.text("L=", NumberInputState.L),
                                 rx.text_area(placeholder="Enter message"),
                                 ),
                             rx.text(NumberInputState.r, " is NOT prime r", color="red")
