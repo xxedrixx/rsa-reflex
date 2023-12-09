@@ -10,6 +10,7 @@ class NumberInputState(rx.State):
     is_prime_r: bool = False
     n: int
     L: int
+    message: str 
 
     def prime(self, num):
         if num < 2:  
@@ -50,6 +51,9 @@ class NumberInputState(rx.State):
 
     def set_L(self):
         self.L = math.lcm ((self.p - 1), (self.q - 1))
+
+    def set_message(self, text):
+        self.message = text
  
 
 @rx.page(title="RSA")
@@ -85,7 +89,8 @@ def index():
                                 rx.text("r=", NumberInputState.r),
                                 rx.text("n=", NumberInputState.n),
                                 rx.text("L=", NumberInputState.L),
-                                rx.text_area(placeholder="Enter message"),
+                                rx.text_area(placeholder="Enter message", on_change=NumberInputState.set_message),
+                                rx.text(NumberInputState.message)
                                 ),
                             rx.text(NumberInputState.r, " and ", NumberInputState.L, " are NOT coprime r", color="red")
                         )
