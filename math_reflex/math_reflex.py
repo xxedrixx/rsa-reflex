@@ -19,6 +19,7 @@ class NumberInputState(rx.State):
     s: int
     decrypted:List[int]= []
     decrypted_string: str = ""
+    to_string: str 
 
     def prime(self, num):
         if num < 2:  
@@ -88,6 +89,10 @@ class NumberInputState(rx.State):
             self.decrypted.append(self.decr)
             yield
             self.decrypted_string = str(self.decrypted)
+            self.set_to_string()
+
+    def set_to_string(self):
+        self.to_string = ''.join(chr(value) for value in self.decrypted)
         
 
 @rx.page(title="RSA")
@@ -129,7 +134,8 @@ def index():
                                 rx.button("Encrypt", on_click=NumberInputState.encryption),
                                 rx.text(NumberInputState.encrypted_string),
                                 rx.button("Decrypt", on_click=NumberInputState.decryption),
-                                rx.text(NumberInputState.decrypted_string)
+                                rx.text(NumberInputState.decrypted_string),
+                                rx.text(NumberInputState.to_string)
                             ),
                             rx.text(NumberInputState.r, " and ", NumberInputState.L, " are NOT coprime r", color="red")
                         )

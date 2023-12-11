@@ -8,25 +8,9 @@ import NextHead from "next/head"
 
 
 
-export function Numberinput_988600d4e3cc7203dd3b7f82d1220e6a () {
-  const [addEvents, connectError] = useContext(EventLoopContext);
-
-  const on_change_d84fa6cfb66f1741f7cb63ce0aed5c39 = useCallback((_e0) => addEvents([Event("state.number_input_state.set_p", {value:_e0})], (_e0), {}), [addEvents, Event])
-
-  return (
-    <NumberInput min={0} onChange={on_change_d84fa6cfb66f1741f7cb63ce0aed5c39}>
-  <NumberInputField/>
-  <NumberInputStepper>
-  <NumberIncrementStepper/>
-  <NumberDecrementStepper/>
-</NumberInputStepper>
-</NumberInput>
-  )
-}
-
-export function Fragment_b648147ecfcfb42f6ac363fe7f99f331 () {
-  const [addEvents, connectError] = useContext(EventLoopContext);
+export function Fragment_d09635514e63c09a4011a9bf65534c03 () {
   const state__number_input_state = useContext(StateContexts.state__number_input_state)
+  const [addEvents, connectError] = useContext(EventLoopContext);
 
 
   return (
@@ -101,6 +85,9 @@ export function Fragment_b648147ecfcfb42f6ac363fe7f99f331 () {
   <Text>
   {state__number_input_state.decrypted_string}
 </Text>
+  <Text>
+  {state__number_input_state.to_string}
+</Text>
 </VStack>
 </Fragment>
 ) : (
@@ -139,6 +126,22 @@ export function Fragment_b648147ecfcfb42f6ac363fe7f99f331 () {
   )
 }
 
+export function Numberinput_988600d4e3cc7203dd3b7f82d1220e6a () {
+  const [addEvents, connectError] = useContext(EventLoopContext);
+
+  const on_change_d84fa6cfb66f1741f7cb63ce0aed5c39 = useCallback((_e0) => addEvents([Event("state.number_input_state.set_p", {value:_e0})], (_e0), {}), [addEvents, Event])
+
+  return (
+    <NumberInput min={0} onChange={on_change_d84fa6cfb66f1741f7cb63ce0aed5c39}>
+  <NumberInputField/>
+  <NumberInputStepper>
+  <NumberIncrementStepper/>
+  <NumberDecrementStepper/>
+</NumberInputStepper>
+</NumberInput>
+  )
+}
+
 export default function Component() {
 
   return (
@@ -149,7 +152,7 @@ export default function Component() {
   {`Enter p`}
 </Text>
   <Numberinput_988600d4e3cc7203dd3b7f82d1220e6a/>
-  <Fragment_b648147ecfcfb42f6ac363fe7f99f331/>
+  <Fragment_d09635514e63c09a4011a9bf65534c03/>
 </VStack>
   <NextHead>
   <title>
