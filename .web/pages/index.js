@@ -1,6 +1,6 @@
 import { Fragment, useCallback, useContext } from "react"
 import { Fragment_fd0e7cb8f9fb4669a6805377d925fba0 } from "/utils/stateful_components"
-import { NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Text, Textarea, VStack } from "@chakra-ui/react"
+import { Button, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Text, Textarea, VStack } from "@chakra-ui/react"
 import "focus-visible/dist/focus-visible"
 import { EventLoopContext, StateContexts } from "/utils/context"
 import { Event, isTrue } from "/utils/state"
@@ -8,7 +8,23 @@ import NextHead from "next/head"
 
 
 
-export function Fragment_8cb316bb9bcf68c3598e1f40f5ed969c () {
+export function Numberinput_988600d4e3cc7203dd3b7f82d1220e6a () {
+  const [addEvents, connectError] = useContext(EventLoopContext);
+
+  const on_change_d84fa6cfb66f1741f7cb63ce0aed5c39 = useCallback((_e0) => addEvents([Event("state.number_input_state.set_p", {value:_e0})], (_e0), {}), [addEvents, Event])
+
+  return (
+    <NumberInput min={0} onChange={on_change_d84fa6cfb66f1741f7cb63ce0aed5c39}>
+  <NumberInputField/>
+  <NumberInputStepper>
+  <NumberIncrementStepper/>
+  <NumberDecrementStepper/>
+</NumberInputStepper>
+</NumberInput>
+  )
+}
+
+export function Fragment_4df82e18c42bd8376c79ccbd67c2d884 () {
   const [addEvents, connectError] = useContext(EventLoopContext);
   const state__number_input_state = useContext(StateContexts.state__number_input_state)
 
@@ -66,10 +82,16 @@ export function Fragment_8cb316bb9bcf68c3598e1f40f5ed969c () {
   {`L=`}
   {state__number_input_state.L}
 </Text>
-  <Textarea onChange={(_e0) => addEvents([Event("state.number_input_state.set_message", {text:_e0.target.value})], (_e0), {})} placeholder={`Enter message`}/>
+  <Textarea onChange={(_e0) => addEvents([Event("state.number_input_state.set_message", {text:_e0.target.value})], (_e0), {})} placeholder={`Enter message`} sx={{"width": "500px"}}/>
   <Text>
-  {state__number_input_state.message}
+  {`To ASCII`}
 </Text>
+  <Text>
+  {state__number_input_state.to_ascii_string}
+</Text>
+  <Button>
+  {`Encrypt`}
+</Button>
 </VStack>
 </Fragment>
 ) : (
@@ -108,22 +130,6 @@ export function Fragment_8cb316bb9bcf68c3598e1f40f5ed969c () {
   )
 }
 
-export function Numberinput_988600d4e3cc7203dd3b7f82d1220e6a () {
-  const [addEvents, connectError] = useContext(EventLoopContext);
-
-  const on_change_d84fa6cfb66f1741f7cb63ce0aed5c39 = useCallback((_e0) => addEvents([Event("state.number_input_state.set_p", {value:_e0})], (_e0), {}), [addEvents, Event])
-
-  return (
-    <NumberInput min={0} onChange={on_change_d84fa6cfb66f1741f7cb63ce0aed5c39}>
-  <NumberInputField/>
-  <NumberInputStepper>
-  <NumberIncrementStepper/>
-  <NumberDecrementStepper/>
-</NumberInputStepper>
-</NumberInput>
-  )
-}
-
 export default function Component() {
 
   return (
@@ -134,7 +140,7 @@ export default function Component() {
   {`Enter p`}
 </Text>
   <Numberinput_988600d4e3cc7203dd3b7f82d1220e6a/>
-  <Fragment_8cb316bb9bcf68c3598e1f40f5ed969c/>
+  <Fragment_4df82e18c42bd8376c79ccbd67c2d884/>
 </VStack>
   <NextHead>
   <title>

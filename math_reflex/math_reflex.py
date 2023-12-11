@@ -1,5 +1,6 @@
 import reflex as rx
 import math
+from typing import List
 
 class NumberInputState(rx.State):
     p: int
@@ -11,6 +12,8 @@ class NumberInputState(rx.State):
     n: int
     L: int
     message: str 
+    to_ascii: List[int] =[]
+    to_ascii_string: str = ""
 
     def prime(self, num):
         if num < 2:  
@@ -54,7 +57,11 @@ class NumberInputState(rx.State):
 
     def set_message(self, text):
         self.message = text
+        self.set_to_ascii()
  
+    def set_to_ascii(self):
+        self.to_ascii = [ord(char) for char in self.message]
+        self.to_ascii_string = str(self.to_ascii)
 
 @rx.page(title="RSA")
 def index():
@@ -89,8 +96,10 @@ def index():
                                 rx.text("r=", NumberInputState.r),
                                 rx.text("n=", NumberInputState.n),
                                 rx.text("L=", NumberInputState.L),
-                                rx.text_area(placeholder="Enter message", on_change=NumberInputState.set_message),
-                                rx.text(NumberInputState.message)
+                                rx.text_area(placeholder="Enter message", on_change=NumberInputState.set_message, style={"width":"500px"}),
+                                rx.text("To ASCII"),
+                                rx.text(NumberInputState.to_ascii_string),
+                                rx.button("Encrypt"),
                                 ),
                             rx.text(NumberInputState.r, " and ", NumberInputState.L, " are NOT coprime r", color="red")
                         )
