@@ -158,9 +158,10 @@ def index():
         )
     )
 
-@rx.page(route="/about")
+@rx.page(title="RSA - About", route="/about")
 def about():
-    return rx.text("This is a simple project to try out reflex")
+    return rx.container(rx.text("This is a simple project to try out reflex"))
+
 
 
 app = rx.App()
