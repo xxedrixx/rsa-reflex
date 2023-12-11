@@ -71,25 +71,34 @@ class NumberInputState(rx.State):
         self.encryption()
 
     async def encryption(self):
-        self.encrypted = []   # Reset the encrypted list
-        for char in self.to_ascii:
-            self.encr = (char**self.r) % self.n
-            self.encrypted.append(self.encr)
-            yield
-            self.encrypted_string = str(self.encrypted)
+        if self.to_ascii:  # Check if 'to_ascii' is not empty
+            self.encrypted = []   # Reset the encrypted list
+            for char in self.to_ascii:
+                self.encr = (char**self.r) % self.n
+                self.encrypted.append(self.encr)
+                yield
+                self.encrypted_string = str(self.encrypted)
+        else:  # If 'to_ascii' is empty
+            self.encrypted = []
+            self.encrypted_string = ""
 
     def set_s(self):
         self.s = pow (self.r, -1, self.L)
 
     async def decryption(self):
-        self.set_s()
-        self.decrypted = []
-        for char in self.encrypted:
-            self.decr = (char**self.s) % self.n
-            self.decrypted.append(self.decr)
-            yield
-            self.decrypted_string = str(self.decrypted)
-            self.set_to_string()
+        if self.encrypted:  # Check if 'encrypted' is not empty
+            self.set_s()
+            self.decrypted = []
+            for char in self.encrypted:
+                self.decr = (char**self.s) % self.n
+                self.decrypted.append(self.decr)
+                yield
+                self.decrypted_string = str(self.decrypted)
+                self.set_to_string()
+        else:  # If 'encrypted' is empty
+            self.decrypted = []
+            self.decrypted_string = ""
+            self.to_string = ""
 
     def set_to_string(self):
         self.to_string = ''.join(chr(value) for value in self.decrypted)
