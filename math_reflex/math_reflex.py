@@ -14,6 +14,8 @@ class NumberInputState(rx.State):
     message: str 
     to_ascii: List[int] =[]
     to_ascii_string: str = ""
+    encrypted:List[int]= []
+    encrypted_string: str = ""
 
     def prime(self, num):
         if num < 2:  
@@ -62,6 +64,16 @@ class NumberInputState(rx.State):
     def set_to_ascii(self):
         self.to_ascii = [ord(char) for char in self.message]
         self.to_ascii_string = str(self.to_ascii)
+        self.encryption()
+
+    async def encryption(self):
+        self.encrypted = []   # Reset the encrypted list
+        for char in self.to_ascii:
+            self.encr = (char**self.r) % self.n
+            self.encrypted.append(self.encr)
+            yield
+            self.encrypted_string = str(self.encrypted)
+        
 
 @rx.page(title="RSA")
 def index():
@@ -99,7 +111,8 @@ def index():
                                 rx.text_area(placeholder="Enter message", on_change=NumberInputState.set_message, style={"width":"500px"}),
                                 rx.text("To ASCII"),
                                 rx.text(NumberInputState.to_ascii_string),
-                                rx.button("Encrypt"),
+                                rx.button("Encrypt", on_click=NumberInputState.encryption),
+                                rx.text(NumberInputState.encrypted_string),
                                 ),
                             rx.text(NumberInputState.r, " and ", NumberInputState.L, " are NOT coprime r", color="red")
                         )

@@ -8,23 +8,7 @@ import NextHead from "next/head"
 
 
 
-export function Numberinput_988600d4e3cc7203dd3b7f82d1220e6a () {
-  const [addEvents, connectError] = useContext(EventLoopContext);
-
-  const on_change_d84fa6cfb66f1741f7cb63ce0aed5c39 = useCallback((_e0) => addEvents([Event("state.number_input_state.set_p", {value:_e0})], (_e0), {}), [addEvents, Event])
-
-  return (
-    <NumberInput min={0} onChange={on_change_d84fa6cfb66f1741f7cb63ce0aed5c39}>
-  <NumberInputField/>
-  <NumberInputStepper>
-  <NumberIncrementStepper/>
-  <NumberDecrementStepper/>
-</NumberInputStepper>
-</NumberInput>
-  )
-}
-
-export function Fragment_4df82e18c42bd8376c79ccbd67c2d884 () {
+export function Fragment_f4d3251c6718682b80731c4a5f7a944a () {
   const [addEvents, connectError] = useContext(EventLoopContext);
   const state__number_input_state = useContext(StateContexts.state__number_input_state)
 
@@ -89,9 +73,12 @@ export function Fragment_4df82e18c42bd8376c79ccbd67c2d884 () {
   <Text>
   {state__number_input_state.to_ascii_string}
 </Text>
-  <Button>
+  <Button onClick={(_e) => addEvents([Event("state.number_input_state.encryption", {})], (_e), {})}>
   {`Encrypt`}
 </Button>
+  <Text>
+  {state__number_input_state.encrypted_string}
+</Text>
 </VStack>
 </Fragment>
 ) : (
@@ -130,6 +117,22 @@ export function Fragment_4df82e18c42bd8376c79ccbd67c2d884 () {
   )
 }
 
+export function Numberinput_988600d4e3cc7203dd3b7f82d1220e6a () {
+  const [addEvents, connectError] = useContext(EventLoopContext);
+
+  const on_change_d84fa6cfb66f1741f7cb63ce0aed5c39 = useCallback((_e0) => addEvents([Event("state.number_input_state.set_p", {value:_e0})], (_e0), {}), [addEvents, Event])
+
+  return (
+    <NumberInput min={0} onChange={on_change_d84fa6cfb66f1741f7cb63ce0aed5c39}>
+  <NumberInputField/>
+  <NumberInputStepper>
+  <NumberIncrementStepper/>
+  <NumberDecrementStepper/>
+</NumberInputStepper>
+</NumberInput>
+  )
+}
+
 export default function Component() {
 
   return (
@@ -140,7 +143,7 @@ export default function Component() {
   {`Enter p`}
 </Text>
   <Numberinput_988600d4e3cc7203dd3b7f82d1220e6a/>
-  <Fragment_4df82e18c42bd8376c79ccbd67c2d884/>
+  <Fragment_f4d3251c6718682b80731c4a5f7a944a/>
 </VStack>
   <NextHead>
   <title>
