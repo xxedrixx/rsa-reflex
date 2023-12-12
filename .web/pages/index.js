@@ -8,9 +8,9 @@ import NextHead from "next/head"
 
 
 
-export function Fragment_d09635514e63c09a4011a9bf65534c03 () {
-  const state__number_input_state = useContext(StateContexts.state__number_input_state)
+export function Fragment_1095eaa846bdc1d07667616e348cdb05 () {
   const [addEvents, connectError] = useContext(EventLoopContext);
+  const state__number_input_state = useContext(StateContexts.state__number_input_state)
 
 
   return (
@@ -67,7 +67,7 @@ export function Fragment_d09635514e63c09a4011a9bf65534c03 () {
   {state__number_input_state.L}
 </Text>
   <Textarea onChange={(_e0) => addEvents([Event("state.number_input_state.set_message", {text:_e0.target.value})], (_e0), {})} placeholder={`Enter message`} sx={{"width": "500px"}}/>
-  <Text>
+  <Text as={`b`}>
   {`To ASCII`}
 </Text>
   <Text>
@@ -76,14 +76,23 @@ export function Fragment_d09635514e63c09a4011a9bf65534c03 () {
   <Button onClick={(_e) => addEvents([Event("state.number_input_state.encryption", {})], (_e), {})}>
   {`Encrypt`}
 </Button>
-  <Text>
+  <Text as={`b`}>
+  {`Encrypted ASCII`}
+</Text>
+  <Text sx={{"color": "orange"}}>
   {state__number_input_state.encrypted_string}
 </Text>
   <Button onClick={(_e) => addEvents([Event("state.number_input_state.decryption", {})], (_e), {})}>
   {`Decrypt`}
 </Button>
-  <Text>
+  <Text as={`b`}>
+  {`Decrypted ASCII`}
+</Text>
+  <Text sx={{"color": "orange"}}>
   {state__number_input_state.decrypted_string}
+</Text>
+  <Text as={`b`}>
+  {`Decrypted message`}
 </Text>
   <Text>
   {state__number_input_state.to_string}
@@ -152,7 +161,7 @@ export default function Component() {
   {`Enter p`}
 </Text>
   <Numberinput_988600d4e3cc7203dd3b7f82d1220e6a/>
-  <Fragment_d09635514e63c09a4011a9bf65534c03/>
+  <Fragment_1095eaa846bdc1d07667616e348cdb05/>
 </VStack>
   <NextHead>
   <title>

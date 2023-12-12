@@ -138,12 +138,19 @@ def index():
                                 rx.text("n=", NumberInputState.n),
                                 rx.text("L=", NumberInputState.L),
                                 rx.text_area(placeholder="Enter message", on_change=NumberInputState.set_message, style={"width":"500px"}),
-                                rx.text("To ASCII"),
+
+                                rx.text("To ASCII", as_="b"),
                                 rx.text(NumberInputState.to_ascii_string),
                                 rx.button("Encrypt", on_click=NumberInputState.encryption),
-                                rx.text(NumberInputState.encrypted_string),
+
+                                rx.text("Encrypted ASCII", as_="b"),
+                                rx.text(NumberInputState.encrypted_string, color="orange"),
                                 rx.button("Decrypt", on_click=NumberInputState.decryption),
-                                rx.text(NumberInputState.decrypted_string),
+
+                                rx.text("Decrypted ASCII", as_="b"),
+                                rx.text(NumberInputState.decrypted_string, color="orange"),
+                                
+                                rx.text("Decrypted message", as_="b"),
                                 rx.text(NumberInputState.to_string)
                             ),
                             rx.text(NumberInputState.r, " and ", NumberInputState.L, " are NOT coprime r", color="red")
