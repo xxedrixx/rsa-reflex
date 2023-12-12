@@ -9,9 +9,25 @@ import NextHead from "next/head"
 
 
 
-export function Fragment_1095eaa846bdc1d07667616e348cdb05 () {
-  const state__number_input_state = useContext(StateContexts.state__number_input_state)
+export function Numberinput_988600d4e3cc7203dd3b7f82d1220e6a () {
   const [addEvents, connectError] = useContext(EventLoopContext);
+
+  const on_change_d84fa6cfb66f1741f7cb63ce0aed5c39 = useCallback((_e0) => addEvents([Event("state.number_input_state.set_p", {value:_e0})], (_e0), {}), [addEvents, Event])
+
+  return (
+    <NumberInput min={0} onChange={on_change_d84fa6cfb66f1741f7cb63ce0aed5c39}>
+  <NumberInputField/>
+  <NumberInputStepper>
+  <NumberIncrementStepper/>
+  <NumberDecrementStepper/>
+</NumberInputStepper>
+</NumberInput>
+  )
+}
+
+export function Fragment_1095eaa846bdc1d07667616e348cdb05 () {
+  const [addEvents, connectError] = useContext(EventLoopContext);
+  const state__number_input_state = useContext(StateContexts.state__number_input_state)
 
 
   return (
@@ -136,22 +152,6 @@ export function Fragment_1095eaa846bdc1d07667616e348cdb05 () {
   )
 }
 
-export function Numberinput_988600d4e3cc7203dd3b7f82d1220e6a () {
-  const [addEvents, connectError] = useContext(EventLoopContext);
-
-  const on_change_d84fa6cfb66f1741f7cb63ce0aed5c39 = useCallback((_e0) => addEvents([Event("state.number_input_state.set_p", {value:_e0})], (_e0), {}), [addEvents, Event])
-
-  return (
-    <NumberInput min={0} onChange={on_change_d84fa6cfb66f1741f7cb63ce0aed5c39}>
-  <NumberInputField/>
-  <NumberInputStepper>
-  <NumberIncrementStepper/>
-  <NumberDecrementStepper/>
-</NumberInputStepper>
-</NumberInput>
-  )
-}
-
 export default function Component() {
 
   return (
@@ -164,13 +164,13 @@ export default function Component() {
 </Link>
   <Box>
   <HStack spacing={`3em`}>
-  <Link as={NextLink} href={`/about`}>
+  <Link as={NextLink} href={`/about`} sx={{"_hover": {"textDecoration": "none"}}}>
   {`About`}
 </Link>
-  <Link as={NextLink} href={`#`}>
+  <Link as={NextLink} href={`/prime-numbers`} sx={{"_hover": {"textDecoration": "none"}}}>
   {`Prime Numbers`}
 </Link>
-  <Link as={NextLink} href={`#`}>
+  <Link as={NextLink} href={`/encryption`} sx={{"_hover": {"textDecoration": "none"}}}>
   {`Encryption`}
 </Link>
 </HStack>

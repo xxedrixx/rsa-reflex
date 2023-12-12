@@ -173,9 +173,23 @@ def index():
 def about():
     return rx.vstack(
         navbar(),
-        rx.text("This is a simple project to try out reflex"))
+        rx.hstack(
+            rx.text("This is a simple project to try out "),
+            rx.link("Reflex", href="https://reflex.dev", is_external=True, _hover={"color": "blue", "text_decoration": "underline"}), 
+            )
+    )
 
+@rx.page(title="RSA - Prime Numbers", route="/prime-numbers")
+def prime_Numbers():
+    return rx.vstack(
+        navbar(),
+        rx.text("Prime numbers page"))
 
+@rx.page(title="RSA - Encryption", route="/encryption")
+def prime_Numbers():
+    return rx.vstack(
+        navbar(),
+        rx.text("Enctyption page"))
 
 app = rx.App()
 app.compile()

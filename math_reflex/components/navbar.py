@@ -8,9 +8,9 @@ def navbar():
         ),
         rx.box(
             rx.hstack(
-                rx.link('About', href="/about"),
-                rx.link('Prime Numbers', href="#"),
-                rx.link('Encryption', href="#"),
+                rx.link('About', href="/about", _hover={"text_decoration": "none"}),
+                rx.link('Prime Numbers', href="/prime-numbers", _hover={"text_decoration": "none"}),
+                rx.link('Encryption', href="/encryption", _hover={"text_decoration": "none"}),
                 spacing="3em"
             )
         ),

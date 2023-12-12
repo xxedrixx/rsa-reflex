@@ -31,18 +31,13 @@ export default function Component() {
 </HStack>
 </Box>
 </Flex>
-  <HStack>
   <Text>
-  {`This is a simple project to try out `}
+  {`Prime numbers page`}
 </Text>
-  <Link as={NextLink} href={`https://reflex.dev`} isExternal={true} sx={{"_hover": {"color": "blue", "textDecoration": "underline"}}}>
-  {`Reflex`}
-</Link>
-</HStack>
 </VStack>
   <NextHead>
   <title>
-  {`RSA - About`}
+  {`RSA - Prime Numbers`}
 </title>
   <meta content={`A Reflex app.`} name={`description`}/>
   <meta content={`favicon.ico`} property={`og:image`}/>
