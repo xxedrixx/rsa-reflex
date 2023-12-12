@@ -1,6 +1,7 @@
 import { Fragment, useCallback, useContext } from "react"
 import { Fragment_fd0e7cb8f9fb4669a6805377d925fba0 } from "/utils/stateful_components"
-import { Button, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Text, Textarea, VStack } from "@chakra-ui/react"
+import { Box, Button, Flex, HStack, Image, Link, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Text, Textarea, VStack } from "@chakra-ui/react"
+import NextLink from "next/link"
 import "focus-visible/dist/focus-visible"
 import { EventLoopContext, StateContexts } from "/utils/context"
 import { Event, isTrue } from "/utils/state"
@@ -9,8 +10,8 @@ import NextHead from "next/head"
 
 
 export function Fragment_1095eaa846bdc1d07667616e348cdb05 () {
-  const [addEvents, connectError] = useContext(EventLoopContext);
   const state__number_input_state = useContext(StateContexts.state__number_input_state)
+  const [addEvents, connectError] = useContext(EventLoopContext);
 
 
   return (
@@ -156,7 +157,25 @@ export default function Component() {
   return (
     <Fragment>
   <Fragment_fd0e7cb8f9fb4669a6805377d925fba0/>
-  <VStack>
+  <VStack sx={{"paddingBottom": "5em"}}>
+  <Flex sx={{"justifyContent": "space-between", "alignItems": "center", "paddingX": "5em", "paddingY": "1em", "width": "100%"}}>
+  <Link as={NextLink} href={`/`}>
+  <Image src={`/favicon.ico`}/>
+</Link>
+  <Box>
+  <HStack spacing={`3em`}>
+  <Link as={NextLink} href={`/about`}>
+  {`About`}
+</Link>
+  <Link as={NextLink} href={`#`}>
+  {`Prime Numbers`}
+</Link>
+  <Link as={NextLink} href={`#`}>
+  {`Encryption`}
+</Link>
+</HStack>
+</Box>
+</Flex>
   <Text>
   {`Enter p`}
 </Text>

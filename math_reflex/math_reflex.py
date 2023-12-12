@@ -2,6 +2,8 @@ import reflex as rx
 import math
 from typing import List
 
+from .components.navbar import navbar
+
 class NumberInputState(rx.State):
     p: int
     q: int
@@ -107,6 +109,7 @@ class NumberInputState(rx.State):
 @rx.page(title="RSA")
 def index():
     return rx.vstack(
+        navbar(),
         rx.text("Enter p"),
         rx.number_input(
             on_change=NumberInputState.set_p,
@@ -162,12 +165,15 @@ def index():
             ),
 
             rx.text(NumberInputState.p, " is NOT prime p", color="red"),
-        )
+        ),
+        padding_bottom="5em"
     )
 
 @rx.page(title="RSA - About", route="/about")
 def about():
-    return rx.container(rx.text("This is a simple project to try out reflex"))
+    return rx.vstack(
+        navbar(),
+        rx.text("This is a simple project to try out reflex"))
 
 
 
