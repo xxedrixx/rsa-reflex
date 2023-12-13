@@ -26,8 +26,8 @@ export function Numberinput_988600d4e3cc7203dd3b7f82d1220e6a () {
 }
 
 export function Fragment_1095eaa846bdc1d07667616e348cdb05 () {
-  const [addEvents, connectError] = useContext(EventLoopContext);
   const state__number_input_state = useContext(StateContexts.state__number_input_state)
+  const [addEvents, connectError] = useContext(EventLoopContext);
 
 
   return (
@@ -158,12 +158,15 @@ export default function Component() {
     <Fragment>
   <Fragment_fd0e7cb8f9fb4669a6805377d925fba0/>
   <VStack sx={{"paddingBottom": "5em"}}>
-  <Flex sx={{"justifyContent": "space-between", "alignItems": "center", "paddingX": "5em", "paddingY": "1em", "width": "100%"}}>
+  <Flex sx={{"justifyContent": "space-between", "alignItems": "center", "paddingX": "5em", "paddingY": "10px", "width": "100%", "boxShadow": "0px 1px 2px 0px rgba(0, 0, 0, 0.2)"}}>
   <Link as={NextLink} href={`/`}>
-  <Image src={`/favicon.ico`}/>
+  <Image src={`/favicon.ico`} sx={{"width": "25px", "height": "25px"}}/>
 </Link>
   <Box>
   <HStack spacing={`3em`}>
+  <Link as={NextLink} href={`/`} sx={{"_hover": {"textDecoration": "none"}}}>
+  {`Home`}
+</Link>
   <Link as={NextLink} href={`/about`} sx={{"_hover": {"textDecoration": "none"}}}>
   {`About`}
 </Link>

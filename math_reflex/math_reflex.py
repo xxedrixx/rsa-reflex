@@ -173,10 +173,24 @@ def index():
 def about():
     return rx.vstack(
         navbar(),
-        rx.hstack(
-            rx.text("This is a simple project to try out "),
-            rx.link("Reflex", href="https://reflex.dev", is_external=True, _hover={"color": "blue", "text_decoration": "underline"}), 
-            )
+        rx.vstack(
+            rx.hstack(
+                rx.text("This is a simple project to try out "),
+                rx.link("Reflex.", href="https://reflex.dev", is_external=True,style={"text_decoration": "underline", "color": "black"}, _hover={"color": "blue", "text_decoration": "underline"})), 
+                rx.text("Reflex is a full-stack framework for building and deploying web applications. It aids in creating both front-end and back-end of your web app completely in Python."),
+                rx.text("Reflex was created with the following goals:"),
+                rx.text("Pure Python", as_="b"),
+                rx.text("Use Python for everything. Don't worry about learning a new language."),
+                rx.text("Easy to Learn", as_="b"),
+                rx.text("Build and share your first app in minutes. No webdev experience required."),
+                rx.text("Full Flexibility", as_="b"),
+                rx.text("Remain as flexible as traditional web frameworks. Reflex is easy to get started with, but powerful enough for advanced use cases."),
+                rx.text("Build anything from small data science apps to large, multi-page websites."),
+                rx.text("Batteries Included", as_="b"),
+                rx.text("No need to reach for a bunch of different tools. Reflex handles the frontend, backend, and deployment of your app."),
+                align_items="start",
+                padding_x="25px"
+        ),
     )
 
 @rx.page(title="RSA - Prime Numbers", route="/prime-numbers")
