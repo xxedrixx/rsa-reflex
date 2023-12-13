@@ -197,13 +197,16 @@ def about():
 def prime_Numbers():
     return rx.vstack(
         navbar(),
-        rx.text("Prime numbers page"))
-
-@rx.page(title="RSA - Encryption", route="/encryption")
-def prime_Numbers():
-    return rx.vstack(
-        navbar(),
-        rx.text("Enctyption page"))
+        rx.container(
+            rx.center(
+                rx.text("2 ^ 82,589,933 − 1", as_="b", style={"text_align": "center"})),
+            rx.vstack(
+                rx.text("The largest known prime number (as of October 2023) is 2 ^ 82,589,933 − 1, a number which has 24,862,048 digits when written in base 10. It was found via a computer volunteered by Patrick Laroche of the Great Internet Mersenne Prime Search (GIMPS) in 2018."),
+                rx.link("(Wikipedia)", href="https://en.wikipedia.org/wiki/Largest_known_prime_number", is_external=True),
+            align_items="start"),
+            padding_x="25px"
+        )     
+    )
 
 app = rx.App()
 app.compile()

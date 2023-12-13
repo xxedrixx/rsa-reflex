@@ -28,9 +28,6 @@ export default function Component() {
   <Link as={NextLink} href={`/prime-numbers`} sx={{"_hover": {"textDecoration": "none"}}}>
   {`Prime Numbers`}
 </Link>
-  <Link as={NextLink} href={`/encryption`} sx={{"_hover": {"textDecoration": "none"}}}>
-  {`Encryption`}
-</Link>
 </HStack>
 </Box>
 </Flex>

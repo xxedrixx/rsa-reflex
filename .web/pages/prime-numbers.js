@@ -1,6 +1,6 @@
 import { Fragment } from "react"
 import { Fragment_fd0e7cb8f9fb4669a6805377d925fba0 } from "/utils/stateful_components"
-import { Box, Flex, HStack, Image, Link, Text, VStack } from "@chakra-ui/react"
+import { Box, Center, Container, Flex, HStack, Image, Link, Text, VStack } from "@chakra-ui/react"
 import NextLink from "next/link"
 import "focus-visible/dist/focus-visible"
 import NextHead from "next/head"
@@ -28,15 +28,24 @@ export default function Component() {
   <Link as={NextLink} href={`/prime-numbers`} sx={{"_hover": {"textDecoration": "none"}}}>
   {`Prime Numbers`}
 </Link>
-  <Link as={NextLink} href={`/encryption`} sx={{"_hover": {"textDecoration": "none"}}}>
-  {`Encryption`}
-</Link>
 </HStack>
 </Box>
 </Flex>
-  <Text>
-  {`Prime numbers page`}
+  <Container sx={{"paddingX": "25px"}}>
+  <Center>
+  <Text as={`b`} sx={{"textAlign": "center"}}>
+  {`2 ^ 82,589,933 − 1`}
 </Text>
+</Center>
+  <VStack alignItems={`start`}>
+  <Text>
+  {`The largest known prime number (as of October 2023) is 2 ^ 82,589,933 − 1, a number which has 24,862,048 digits when written in base 10. It was found via a computer volunteered by Patrick Laroche of the Great Internet Mersenne Prime Search (GIMPS) in 2018.`}
+</Text>
+  <Link as={NextLink} href={`https://en.wikipedia.org/wiki/Largest_known_prime_number`} isExternal={true}>
+  {`(Wikipedia)`}
+</Link>
+</VStack>
+</Container>
 </VStack>
   <NextHead>
   <title>
